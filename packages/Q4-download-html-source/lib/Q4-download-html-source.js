@@ -3,12 +3,11 @@ const scrape = require('website-scraper');
 const fs = require('fs');
 const path = require('path');
 
-// let options = {urls: ['https://www.baidu.com/'], directory: './dist', };
+// let options = {urls: ['https://www.baidu.com/'], directory: path.join(__dirname, './dist')};
 
-async function q4DownloadHtmlSource(option) {
-    const distPath = path.join(__dirname, option.directory);
-    if (fs.existsSync(distPath)) {
-        fs.rmSync(distPath, {
+function q4DownloadHtmlSource(option) {
+    if (fs.existsSync(option.directory)) {
+        fs.rmSync(option.directory, {
             recursive: true
         });
     }
