@@ -20,6 +20,9 @@
     "registry": "https://registry.npm.taobao.org"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^26.6.3"
   }
 }

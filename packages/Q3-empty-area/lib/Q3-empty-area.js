@@ -1,13 +1,5 @@
 'use strict';
 
-// const sample = [
-//     '*****',
-//     '* * *',
-//     '**  *',
-//     '*   *',
-//     '*****'
-// ]
-
 function q3EmptyArea(array) {
     let count = 0;
     function bfs(row, col) {

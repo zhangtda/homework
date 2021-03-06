@@ -5,20 +5,14 @@ const path = require('path');
 
 // let options = {urls: ['https://www.baidu.com/'], directory: './dist', };
 
-function q4DownloadHtmlSource(option) {
+async function q4DownloadHtmlSource(option) {
     const distPath = path.join(__dirname, option.directory);
-    console.log(distPath, '123')
     if (fs.existsSync(distPath)) {
         fs.rmSync(distPath, {
             recursive: true
         });
     }
-
-    scrape(option).then((result) => {
-        console.log("Website succesfully downloaded");
-    }).catch((err) => {
-        console.log("An error ocurred", err);
-    });
+    return scrape(option);
 }
-
+// q4DownloadHtmlSource(options);
 module.exports = q4DownloadHtmlSource;

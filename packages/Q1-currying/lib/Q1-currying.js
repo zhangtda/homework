@@ -7,10 +7,9 @@ function q1Currying(fn) {
     const _args = Array.from(arguments).slice(1) // 柯里初始化时也可以加入参数例如 q1Currying(fn,1,23)
     const fnArgLength = fn.length; // 入参函数指定的参数个数
     let curriedFn = function (...innerArgs) {
-        if (innerArgs.length === 0 || _args.length >= fnArgLength) {
+        _args.push(...innerArgs);
+        if (innerArgs.length === 0 || (fnArgLength && _args.length >= fnArgLength)) {
             return fn.apply(undefined, _args);
-        } else {
-            _args.push(...innerArgs);
         }
         return curriedFn;
     }
@@ -20,5 +19,4 @@ function q1Currying(fn) {
     }
     return curriedFn;
 }
-
 module.exports = q1Currying;
